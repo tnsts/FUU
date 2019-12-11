@@ -1,0 +1,39 @@
+
+  <div id="edit-profile" v-cloak>
+    <div class="container">
+      <h2>Task info</h2>
+      <hr/>
+
+      <div class="row" >
+        <div class="col-lg-6">
+          <p><a href="/task/create" class="btn btn-dark">Add New</a></p>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Executor</th>
+                  <th>Operations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% _.each(tasks, function (task) { %>
+                  <tr>
+                    <td><%= task.id %></td>
+                    <td><a href="/task/view/<%= task.id %>"><%= task.title %></a></td>
+                    <td><%= task.endDate %></td>
+                    <td><%= task.performer.executorName %></td>
+                    <td><a class="btn btn-warning" href="/task/delete/<%= task.id %>">Delete</a></td>
+                  </tr>
+                  <%}) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+  </div>
