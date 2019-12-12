@@ -9,39 +9,24 @@ module.exports = {
 
   attributes: {
 
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
     mail: {
-          type: 'string',
-          required: true,
-          maxLength: 50,
-          unique: true,
-          email: true
-      },
+      type: 'string',
+      required: true,
+      maxLength: 50,
+      unique: true,
+      email: true
+    },
 
-      executorName: {
-          type: 'string',
-          required: true,
-          maxLength: 100
-      },
+    executorName: {
+      type: 'string',
+      required: true,
+      maxLength: 100
+    },
 
-      phone: {
-          type: 'string',
-          required: false,
-
-      },
+    phone: {
+      type: 'string',
+      required: false,
+    },
 
   },
 

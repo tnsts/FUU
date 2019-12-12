@@ -9,24 +9,24 @@ module.exports = {
 
   attributes: {
 
-  title: {
-        type: 'string',
-        required: true,
-        maxLength: 100
+    title: {
+      type: 'string',
+      required: true,
+      maxLength: 100
     },
 
     name: {
-        type: 'string',
-        required: true,
-        maxLength: 30
+      type: 'string',
+      required: true,
+      maxLength: 30
     },
 
     description: {
-        type: 'string',
-        required: false,
-        maxLength: 1024
-    }
+      type: 'string',
+      required: false,
+      maxLength: 1024
+    },
 
-},
+  },
 
 };

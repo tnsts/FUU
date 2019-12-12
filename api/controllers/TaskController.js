@@ -9,122 +9,87 @@ module.exports = {
 
   addTask: function (req, res) {
 
-        var data = {
-            title       : req.param("title"),
-            description : req.param('description'),
-            performer   : req.param('performer'),
-            status      : req.param('status'),
-            endDate     : req.param('endDate'),
-        };
+    var data = {
+      title       : req.param("title"),
+      description : req.param('description'),
+      performer   : req.param('performer'),
+      status      : req.param('status'),
+      endDate     : req.param('endDate'),
+    };
 
-        Task.create(data).exec(function (err, task) {
+    Task.create(data).exec(function (err, task) {
+      if (err) {
+        return res.send(500);
+      }
 
-            if (err) return res.send(500);
+      res.redirect('/task');
+    });
+  },
 
-            res.redirect('/task');
+  deleteTask: function (req, res) {
 
+    var taskId = req.param('id');
+
+    Task.destroy(taskId)
+        .exec(function(err) {
+
+          if (err){
+            return res.send(500);
+          }
+
+          res.redirect('/task');
         });
+  },
 
-    },
+  index: function (req, res) {
+    Task.find()
+        .populate('performer')
+        .populate('status')
+        .sort('id DESC')
+        .exec(function (err, tasks) {
 
-    deleteTask: function (req, res) {
+          if (err){
+            return res.send(500);
+          }
 
-        var taskId = req.param('id');
-
-        Task.destroy(taskId)
-            .exec(function(err) {
-
-                if (err) return res.send(500);
-
-                res.redirect('/task');
-
+          res.view({
+            tasks : tasks
+          });
         });
+  },
 
-    },
+  create: function (req, res) {
+    var data = {};
 
-
-
-    index: function (req, res) {
-
-        Task.find()
-            .populate('performer')
-            .populate('status')
-            .sort('id DESC')
-            .exec(function (err, tasks) {
-
-                if (err) return res.send(500);
-
-                res.view({
-                    tasks : tasks
-
-                });
-
-            });
-    },
-
-    create: function (req, res) {
-
-        var data = {};
-
-        Executor.find()
-
+    Executor.find()
             .then(function(executors) {
 
-                data.performers = executors;
+              data.performers = executors;
 
-                Status.find()
-
+              Status.find()
                     .then(function(statuses) {
-
-                        data.statuses = statuses;
-
-                        res.view({data : data});
-                });
-        });
-
-
+                      data.statuses = statuses;
+                      res.view({data : data});
+                    });
+                  });
     },
 
-/*
-    updateTask: function (req, res) {
+  view: function (req, res) {
 
-        var statusId = req.param('id');
+    var taskId = req.param('id');
 
-        var data = {
-            title       : req.param("title"),
-            description : req.param('description'),
-            performer   : req.param('performer'),
-            status      : req.param('status'),
-            endDate     : req.param('endDate'),
-        };
+    Task.findOne(taskId)
+        .populate('performer')
+        .populate('status')
+        .exec(function (err, task) {
 
-        Status.update(statusId, updatedData).exec(function (err) {
+          if (err) {
+            return res.send(500);
+          }
 
-            if (err) {
-                return res.send(500);
-            }
-
-            res.redirect('/task');
+          res.view({
+            task: task
+          });
         });
-    },
-  */
-
-    view: function (req, res) {
-
-        var taskId = req.param('id');
-
-        Task.findOne(taskId)
-            .populate('performer')
-            .populate('status')
-            .exec(function (err, task) {
-
-                if (err) return res.send(500);
-
-                res.view({
-                    task: task
-                });
-        });
-
     }
-
 };

@@ -2,38 +2,32 @@
   <div class="container">
     <h2>Status info</h2>
     <hr/>
-
-                <div class="row">
-					  <div class="col-lg-6">
-
-                        <p><a href="/status/create" class="btn btn-dark">Add new</a></p>
-
-
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>System name</th>
-                                        <th>Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   <% _.each(statuses, function (status) { %>
-                                    <tr>
-                                        <td><a href="/status/view/<%= status.id %>"><%= status.title %></a></td>
-                                        <td><%= status.name %></td>
-                                        <td>
-                                            <a class="btn btn-info" href="/status/view/<%= status.id %>">Edit</a>                                                                     <a class="btn btn-warning" href="/status/delete/<%= status.id %>">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-				</div>
-				<!-- /.row -->
-
+    <div class="row">
+			<div class="col-lg-6">
+        <p><a href="/status/create" class="btn btn-dark">Add new</a></p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>System name</th>
+                <th>Operations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% _.each(statuses, function (status) { %>
+              <tr>
+                <td><a href="/status/view/<%= status.id %>"><%= status.title %></a></td>
+                <td><%= status.name %></td>
+                <td>
+                <a class="btn btn-info" href="/status/view/<%= status.id %>">Edit</a>                                                                     <a class="btn btn-warning" href="/status/delete/<%= status.id %>">Delete</a>
+                </td>
+              </tr>
+              <%}) %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+		</div>
+  </div>
+</div>

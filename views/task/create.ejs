@@ -1,18 +1,16 @@
 <div id="login" v-cloak>
   <div class="container">
-
-
-<form action="/task/create" method="POST">
-    <div class="form-group">
+    <form action="/task/create" method="POST">
+      <div class="form-group">
         <label>Title:</label>
         <input type="text" class="form-control" name="title" value="" required>
         <br>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <label>Description:</label>
         <textarea class="form-control" name="description" rows="3" required></textarea>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <label>Executor:</label>
         <select class="form-control" name="performer">
           <% _.each(data.performers, function (executor) { %>
@@ -20,25 +18,21 @@
           <% }) %>
         </select>
         <br>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <label>Date:</label>
         <input type="date" class="form-control" name="endDate" value="" required>
         <br>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <label>Task status:</label>
         <select class="form-control" name="status">
             <% _.each(data.statuses, function (status) { %>
             <option value="<%= status.id %>"><%= status.title %></option>
             <% }) %>
         </select>
-    </div>
-
-    <button type="submit" class="btn btn-success">Send</button>
-</form>
-
-
-
-</div>
+      </div>
+      <button type="submit" class="btn btn-success">Send</button>
+    </form>
+  </div>
 </div>

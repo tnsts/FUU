@@ -1,42 +1,35 @@
-
-  <div id="edit-profile" v-cloak>
-    <div class="container">
-      <h2>Executor info</h2>
-      <hr/>
-
-                <div class="row">
-					  <div class="col-lg-6">
-
-                        <p><a href="/executor/create" class="btn btn-dark">Add New</a></p>
-
-
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Email</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Operations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   <% _.each(executors, function (executor) { %>
-                                    <tr>
-                                        <td><a href="mailto:<%= executor.mail %>"><%= executor.mail %></a></td>
-                                        <td><a href="/executor/view/<%= executor.id %>"><%= executor.executorName %></td>
-                                        <td><%= executor.phone %></td>
-                                        <td>
-                                            <a class="btn btn-info" href="/executor/view/<%= executor.id %>">Edit</a>                                                                     <a class="btn btn-warning" href="/executor/delete/<%= executor.id %>">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-				</div>
-				<!-- /.row -->
-
+<div id="edit-profile" v-cloak>
+  <div class="container">
+  <h2>Executor info</h2>
+  <hr/>
+  <div class="row">
+	   <div class="col-lg-6">
+       <p><a href="/executor/create" class="btn btn-dark">Add New</a></p>
+       <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% _.each(executors, function (executor) { %>
+            <tr>
+              <td><a href="mailto:<%= executor.mail %>"><%= executor.mail %></a></td>
+              <td><a href="/executor/view/<%= executor.id %>"><%= executor.executorName %></td>
+              <td><%= executor.phone %></td>
+              <td>
+              <a class="btn btn-info" href="/executor/view/<%= executor.id %>">Edit</a>                                                                     <a class="btn btn-warning" href="/executor/delete/<%= executor.id %>">Delete</a>
+              </td>
+            </tr>
+            <%}) %>
+          </tbody>
+        </table>
       </div>
-      </div>
+    </div>
+	</div>
+  </div>
+</div>

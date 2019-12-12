@@ -9,48 +9,32 @@ module.exports = {
 
   attributes: {
 
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
     title: {
-          type: 'string',
-          required: true,
-          maxLength: 50
+      type: 'string',
+      required: true,
+      maxLength: 50
+    },
 
-      },
+    description: {
+      type: 'string',
+      maxLength: 1024,
+      required: true
+    },
 
-      description: {
-          type: 'string',
-          maxLength: 1024,
-          required: true
-      },
+    performer: {
+      required: true,
+      model: 'executor'
+    },
 
-      performer: {
-          required: true,
-          model: 'executor'
-      },
+    status: {
+      required: true,
+      model: 'status'
+    },
 
-      status: {
-          required: true,
-          model: 'status'
-      },
-
-
-      endDate: {
-          type: 'string',
-          required: true
-      },
+    endDate: {
+      type: 'string',
+      required: true
+    },
 
   },
 
