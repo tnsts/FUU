@@ -1,2 +1,2 @@
 # fuu
-Task Management web app
+Sails v1.2.3 Task Management web app
